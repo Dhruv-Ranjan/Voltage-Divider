@@ -33,3 +33,17 @@ With **5V** as the input, the output will be **3.3V**.
 | Resistor (2kΩ)   | Terminal 2 | Arduino Nano ESP32     | GND            |
 | Between R1 & R2  | —          | Arduino Nano ESP32     | D3 (GPIO 3)    |
 
+
+## Explanation of Output:
+### Distance: 
+This value represents the distance between the HC-SR04 sensor and the object in front of it. The distance is calculated based on the time it takes for the ultrasonic pulse to travel to the object and back.
+
+### Voltage: 
+The voltage is a calculated approximation, mapped from the pulse duration of the ECHO pin. This is intended to give you an idea of how long the pulse is, which can be roughly interpreted as a voltage. However, it’s not directly related to real-world voltage but is simply a scaled version of the pulse width.
+
+### How the Calculation Works:
+The duration is the time it takes for the ultrasonic pulse to travel from the TRIG pin to the object and back to the ECHO pin.
+
+The distance is calculated from the duration using the speed of sound (0.0344 cm/us).
+
+The voltage calculation is a basic map function that translates the pulse width into a voltage range between 0 and 5V. This is just an example to demonstrate the idea, and may not provide a precise voltage value related to actual sensor measurements.
